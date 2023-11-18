@@ -1,7 +1,6 @@
 """Seminar 3. Multilayer neural net"""
 import numpy as np
 
-
 class Param:
     """
     Trainable parameter of the model
@@ -37,8 +36,8 @@ def softmax_with_cross_entropy(Z, y):
 
 
 def l2_regularization(W, reg_strength):
-    loss = 0.5 * reg_strength * np.sum(W*W)
-    grad = np.dot(W, reg_strength)
+    loss = reg_strength * np.sum(W*W)
+    grad = 2 * np.dot(W, reg_strength)
     return loss, grad
 
 
@@ -206,6 +205,7 @@ class TwoLayerNet:
 
 if __name__ == '__main__':
     """1 point"""
-    # Train your TwoLayer Net!
+    # Train your TwoLayer Net! 
+    # Test accuracy must be > 0.33
     # Save report to output/seminar3
     model = TwoLayerNet()
